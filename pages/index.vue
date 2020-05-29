@@ -1,5 +1,7 @@
 <template>
-    <h2>hello</h2>
+  <div>
+    <p v-for="item in 100" :key="item">Lorem ipsum dolor sit.</p>
+  </div>
 </template>
 
 <script>
