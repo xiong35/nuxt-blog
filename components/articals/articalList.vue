@@ -1,47 +1,49 @@
 // dependency: //
 <template>
   <div>
-    <v-hover v-for="(item, index) in pagedList" :key="index">
-      <template v-slot="{ hover }">
-        <v-card flat class="ma-3" :elevation="hover ? 7 : 0" outlined>
-          <v-card-text class="pb-1">
-            <p class="headline text--primary">
-              {{ item.headline || item.problem }}
-            </p>
+    <v-scale-transition group tag="div">
+      <v-hover v-for="(item, index) in pagedList" :key="index">
+        <template v-slot="{ hover }">
+          <v-card flat class="ma-3" :elevation="hover ? 7 : 0" outlined>
+            <v-card-text class="pb-1">
+              <p class="headline text--primary">
+                {{ item.headline || item.problem }}
+              </p>
 
-            <v-chip
-              v-for="(tag, ind) in item.tags"
-              outlined
-              :key="ind"
-              class="mx-1"
-              @click="$store.commit('toggleActiveTag', tag)"
-              active-class="cyan--text cyan"
-              :input-value="$store.state.activeTags.indexOf(tag) != -1"
-            >
-              {{ tag }}
-            </v-chip>
-          </v-card-text>
-          <v-card-actions class="px-3">
-            <v-btn
-              text
-              exact
-              append
-              nuxt
-              :to="to(item.id)"
-              color="deep-purple accent-4"
-            >
-              Read More
-            </v-btn>
-            <v-spacer></v-spacer>
-            <div
-              class="d-flex align-center text--secondary font-weight-light mx-2"
-            >
-              {{ item.last_update | fmtTime }}
-            </div>
-          </v-card-actions>
-        </v-card>
-      </template>
-    </v-hover>
+              <v-chip
+                v-for="(tag, ind) in item.tags"
+                outlined
+                :key="ind"
+                class="mx-1"
+                @click="$store.commit('toggleActiveTag', tag)"
+                active-class="cyan--text cyan"
+                :input-value="$store.state.activeTags.indexOf(tag) != -1"
+              >
+                {{ tag }}
+              </v-chip>
+            </v-card-text>
+            <v-card-actions class="px-3">
+              <v-btn
+                text
+                exact
+                append
+                nuxt
+                :to="to(item.id)"
+                color="deep-purple accent-4"
+              >
+                Read More
+              </v-btn>
+              <v-spacer></v-spacer>
+              <div
+                class="d-flex align-center text--secondary font-weight-light mx-2"
+              >
+                {{ item.last_update | fmtTime }}
+              </div>
+            </v-card-actions>
+          </v-card>
+        </template>
+      </v-hover>
+    </v-scale-transition>
     <v-pagination
       color="blue-grey darken-3"
       v-model="page"

@@ -7,6 +7,19 @@
       </v-tab>
     </v-tabs>
 
+    <v-chip-group v-model="activeTags" column multiple>
+      <v-chip
+        filter
+        outlined
+        active-class="cyan--text cyan"
+        v-for="(item, index) in tags"
+        @click="$store.commit('toggleActiveTag', item.tag_name)"
+        :key="index"
+      >
+        {{ item.tag_name }}
+      </v-chip>
+    </v-chip-group>
+
     <v-tabs-items v-model="tab">
       <v-tab-item v-for="item in items" :key="item">
         <artical-list :tab="tab" :type="item"></artical-list>
@@ -28,6 +41,7 @@
       return {
         tab: 0,
         items: ["文章", "踩坑记录", "日记"],
+        activeTags: [],
       };
     },
     computed: {},
