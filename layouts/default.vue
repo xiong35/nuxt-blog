@@ -2,7 +2,7 @@
   <v-app>
     <nav-bars></nav-bars>
     <v-content>
-      <v-row class="pa-6">
+      <v-row class="pa-md-6">
         <v-col class="pa-4 d-none d-md-flex col-md-3">
           <nav-aside />
         </v-col>
@@ -28,3 +28,5 @@
     },
   };
 </script>
+
+<style scoped></style>

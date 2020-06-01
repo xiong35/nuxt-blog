@@ -7,7 +7,7 @@
       </v-tab>
     </v-tabs>
 
-    <v-chip-group v-model="activeTags" column multiple>
+    <v-chip-group class="px-4" v-model="activeTags" column multiple>
       <v-chip
         filter
         outlined
@@ -28,16 +28,6 @@
         <artical-list :tab="tab" :type="item"></artical-list>
       </v-tab-item>
     </v-tabs-items>
-
-    <v-layout column class="fab-container">
-      <v-btn fab small text outlined>
-        <v-icon>mdi-format-list-bulleted</v-icon>
-      </v-btn>
-      <div class="mt-1"></div>
-      <v-btn fab small text outlined>
-        <v-icon>mdi-arrow-up-bold-circle-outline</v-icon>
-      </v-btn>
-    </v-layout>
   </div>
 </template>
 
@@ -68,10 +58,4 @@
     },
   };
 </script>
-<style scoped>
-  .fab-container {
-    position: fixed;
-    right: 4vmin;
-    bottom: 3vmin;
-  }
-</style>
+<style scoped></style>

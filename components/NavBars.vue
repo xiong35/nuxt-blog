@@ -18,6 +18,30 @@
 
       <nav-aside />
     </v-navigation-drawer>
+
+    <v-layout column class="fab-container">
+      <v-btn
+        @click="drawer = !drawer"
+        color="grey darken-2"
+        fab
+        small
+        text
+      >
+        <v-icon>mdi-format-list-bulleted</v-icon>
+      </v-btn>
+      <v-btn fab color="grey darken-2" small text>
+        <v-icon>mdi-duck</v-icon>
+      </v-btn>
+      <v-btn
+        @click="$vuetify.goTo(0)"
+        color="grey darken-2"
+        fab
+        small
+        text
+      >
+        <v-icon>mdi-arrow-up-bold-box-outline</v-icon>
+      </v-btn>
+    </v-layout>
   </nav>
 </template>
 
@@ -37,4 +61,11 @@
     mounted() {},
   };
 </script>
-<style scoped></style>
+<style scoped>
+  .fab-container {
+    position: fixed;
+    right: 4vmin;
+    bottom: 3vmin;
+    z-index: 99;
+  }
+</style>
