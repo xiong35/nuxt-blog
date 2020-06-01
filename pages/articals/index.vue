@@ -1,7 +1,7 @@
 // dependency: //
 <template>
   <div class="index">
-    <v-tabs v-model="tab" color="grey darken-4">
+    <v-tabs v-model="tab" color="indigo accent-3">
       <v-tab v-for="item in items" :key="item">
         {{ item }}
       </v-tab>
