@@ -79,7 +79,7 @@
 </template>
 
 <script>
-  import { getArtical } from "~/network/artical";
+  import { getarticle } from "~/network/article";
 
   let typeMap = {
     文章: "blog",
@@ -108,7 +108,7 @@
     data() {
       return {
         page: 1,
-        articals: [],
+        articles: [],
         perPage: 7,
         loading: true,
       };
@@ -119,7 +119,7 @@
         return this.filteredList.slice(begin, begin + this.perPage);
       },
       filteredList() {
-        return this.articals.filter((value, index, array) => {
+        return this.articles.filter((value, index, array) => {
           for (let tag of this.$store.state.activeTags) {
             if (value.tags.indexOf(tag) == -1) {
               return false;
@@ -138,8 +138,8 @@
     methods: {},
     created() {},
     mounted() {
-      getArtical("", typeMap[this.$props.type]).then((response) => {
-        this.articals = response.data;
+      getarticle("", typeMap[this.$props.type]).then((response) => {
+        this.articles = response.data;
         this.loading = false;
       });
     },

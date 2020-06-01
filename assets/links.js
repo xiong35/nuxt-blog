@@ -6,7 +6,7 @@ var links = [
   },
   {
     text: "文章",
-    href: "/articals",
+    href: "/articles",
     icon: "mdi-bookshelf"
   },
   {

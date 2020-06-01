@@ -6,7 +6,7 @@
     </v-btn>
 
     <mavon-editor
-      class="artical-content"
+      class="article-content"
       :value="content"
       :subfield="false"
       :defaultOpen="'preview'"
@@ -21,10 +21,10 @@
 </template>
 
 <script>
-  import { getArtical } from "~/network/artical";
+  import { getarticle } from "~/network/article";
 
   export default {
-    name: "articalContent",
+    name: "articleContent",
     components: {},
     data() {
       return {};
@@ -35,13 +35,13 @@
     created() {},
     mounted() {},
     async asyncData({ params }) {
-      let rt_data = await getArtical(params.id, params.type);
+      let rt_data = await getarticle(params.id, params.type);
       return { content: rt_data.content.content };
     },
   };
 </script>
 <style scoped>
-  .artical-content {
+  .article-content {
     z-index: 0 !important;
   }
 </style>

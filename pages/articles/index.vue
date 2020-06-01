@@ -25,20 +25,20 @@
 
     <v-tabs-items v-model="tab">
       <v-tab-item v-for="item in items" :key="item">
-        <artical-list :tab="tab" :type="item"></artical-list>
+        <article-list :tab="tab" :type="item"></article-list>
       </v-tab-item>
     </v-tabs-items>
   </div>
 </template>
 
 <script>
-  import articalList from "~/components/articals/articalList";
-  import { getTags } from "~/network/artical";
+  import articleList from "~/components/articles/articleList";
+  import { getTags } from "~/network/article";
 
   export default {
     name: "index",
     components: {
-      articalList,
+      articleList,
     },
     data() {
       return {
