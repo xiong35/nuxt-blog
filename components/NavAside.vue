@@ -47,7 +47,6 @@
     width: 100%;
   }
   .nav-item {
-    border-left: 4px solid #3cd1c2;
-    border-radius: 6px;
+    border-left: 3px solid #3cd1c2;
   }
 </style>
