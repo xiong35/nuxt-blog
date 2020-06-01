@@ -27,7 +27,7 @@
               exact
               append
               nuxt
-              :to="item.id + ''"
+              :to="to(item.id)"
               color="deep-purple accent-4"
             >
               Read More
@@ -99,6 +99,11 @@
           }
           return true;
         });
+      },
+      to(id) {
+        return (id) => {
+          return typeMap[this.type] + "/" + id;
+        };
       },
     },
     watch: {},
