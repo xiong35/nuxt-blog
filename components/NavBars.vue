@@ -1,12 +1,11 @@
 <template>
   <nav class="navbars">
-    <v-app-bar flat app>
+    <v-app-bar flat app hide-on-scroll>
       <v-app-bar-nav-icon class="grey--text" @click="drawer = !drawer" />
       <v-toolbar-title class="font-weight-thin grey--text">
         🧸 Xiong<sup>35 </sup>'s Blog
       </v-toolbar-title>
     </v-app-bar>
-    <v-spacer />
 
     <v-navigation-drawer
       app
@@ -15,11 +14,7 @@
       hide-overlay
       dark
     >
-      <v-list rounded>
-        <v-subheader>NAVIGATION</v-subheader>
-
-
-      </v-list>
+      <v-subheader>站内导航</v-subheader>
 
       <nav-aside />
     </v-navigation-drawer>

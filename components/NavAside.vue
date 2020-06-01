@@ -1,21 +1,17 @@
 // dependency: //
 <template>
-  <nav>
-    <v-layout column wrap class="align-center mb-5">
-      <v-flex class="mt-5">
-        <v-avatar size="100">
-          <img :src="require('~/static/img/avatar.jpg')" alt="avatar" />
-        </v-avatar>
-      </v-flex>
-    </v-layout>
-    <v-list-item-group v-model="curItem">
+  <v-list nav class="nav-aside">
+    <v-list-item class="d-flex justify-center mb-6">
+      <v-avatar size="100">
+        <img :src="require('~/static/img/avatar.jpg')" alt="avatar" />
+      </v-avatar>
+    </v-list-item>
+    <v-list-item-group>
       <v-list-item
         v-for="(item, index) in links"
         :key="index"
         nuxt
-        rounded
         :to="item.href"
-        color="grey lighten-3"
       >
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
@@ -25,7 +21,7 @@
         </v-list-item-content>
       </v-list-item>
     </v-list-item-group>
-  </nav>
+  </v-list>
 </template>
 
 <script>
@@ -44,4 +40,8 @@
     mounted() {},
   };
 </script>
-<style scoped></style>
+<style scoped>
+  .nav-aside {
+    width: 100%;
+  }
+</style>
