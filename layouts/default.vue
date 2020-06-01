@@ -2,7 +2,7 @@
   <v-app>
     <nav-bars></nav-bars>
     <v-content>
-      <v-container class="pa-10">
+      <v-container class="ma-10">
         <nuxt />
       </v-container>
     </v-content>
