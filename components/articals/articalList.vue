@@ -15,8 +15,7 @@
                 outlined
                 :key="ind"
                 class="mx-1"
-                @click="$store.commit('toggleActiveTag', tag)"
-                active-class="cyan--text cyan"
+                active-class="light-blue--text light-blue"
                 :input-value="$store.state.activeTags.indexOf(tag) != -1"
               >
                 {{ tag }}

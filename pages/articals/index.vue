@@ -11,12 +11,15 @@
       <v-chip
         filter
         outlined
-        active-class="cyan--text cyan"
+        active-class="light-blue--text light-blue"
         v-for="(item, index) in tags"
         @click="$store.commit('toggleActiveTag', item.tag_name)"
         :key="index"
       >
         {{ item.tag_name }}
+        <sup>
+          <small>{{ item.count }}</small>
+        </sup>
       </v-chip>
     </v-chip-group>
 
@@ -25,6 +28,16 @@
         <artical-list :tab="tab" :type="item"></artical-list>
       </v-tab-item>
     </v-tabs-items>
+
+    <v-layout column class="fab-container">
+      <v-btn fab small text outlined>
+        <v-icon>mdi-format-list-bulleted</v-icon>
+      </v-btn>
+      <div class="mt-1"></div>
+      <v-btn fab small text outlined>
+        <v-icon>mdi-arrow-up-bold-circle-outline</v-icon>
+      </v-btn>
+    </v-layout>
   </div>
 </template>
 
@@ -55,4 +68,10 @@
     },
   };
 </script>
-<style scoped></style>
+<style scoped>
+  .fab-container {
+    position: fixed;
+    right: 4vmin;
+    bottom: 3vmin;
+  }
+</style>
