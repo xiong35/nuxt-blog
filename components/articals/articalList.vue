@@ -1,7 +1,33 @@
 // dependency: //
 <template>
   <div>
+    <v-skeleton-loader
+      class="mx-auto"
+      type="article"
+      v-for="item in 7"
+      :key="item"
+      transition="scale-transition"
+      v-show="loading"
+    ></v-skeleton-loader>
+
     <v-scale-transition group tag="div">
+      <v-card
+        v-if="filteredList.length == 0 && !loading"
+        flat
+        class="ma-3"
+        key="empty"
+      >
+        <v-card-text class="pt-1">
+          <p class="text-center subtitle-1">
+            <v-icon>mdi-text-box-remove-outline</v-icon>
+            这里什么都没有呢😥<br />
+          </p>
+          <p class="text-center caption">
+            你可以<a>催更</a>或者<a href="http://xiong35.cn">看点别的</a>
+          </p>
+        </v-card-text>
+      </v-card>
+
       <v-hover v-for="(item, index) in pagedList" :key="index">
         <template v-slot="{ hover }">
           <v-card flat class="ma-3" :elevation="hover ? 7 : 0" outlined>
@@ -84,6 +110,7 @@
         page: 1,
         articals: [],
         perPage: 7,
+        loading: true,
       };
     },
     computed: {
@@ -113,6 +140,7 @@
     mounted() {
       getArtical("", typeMap[this.$props.type]).then((response) => {
         this.articals = response.data;
+        this.loading = false;
       });
     },
     activated() {},
