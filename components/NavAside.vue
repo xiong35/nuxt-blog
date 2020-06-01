@@ -12,6 +12,8 @@
         :key="index"
         nuxt
         :to="item.href"
+        class="nav-item"
+        active-class="cyan--text accent-3"
       >
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
@@ -43,5 +45,9 @@
 <style scoped>
   .nav-aside {
     width: 100%;
+  }
+  .nav-item {
+    border-left: 4px solid #3cd1c2;
+    border-radius: 6px;
   }
 </style>
