@@ -84,7 +84,6 @@
   let typeMap = {
     文章: "blog",
     踩坑记录: "trap",
-    日记: "diary",
   };
 
   export default {

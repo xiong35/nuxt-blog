@@ -47,7 +47,7 @@
     data() {
       return {
         tab: 0,
-        items: ["文章", "踩坑记录", "日记"],
+        items: ["文章", "踩坑记录"],
         activeTags: [],
         reset: true,
       };

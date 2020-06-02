@@ -35,7 +35,7 @@
       return {};
     },
     validate({ params }) {
-      let valid = ["blog", "trap", "diary"];
+      let valid = ["blog", "trap"];
       if (valid.indexOf(params.type) == -1) return false;
       return true;
     },
