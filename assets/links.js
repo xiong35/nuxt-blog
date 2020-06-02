@@ -1,9 +1,9 @@
 var links = [
-  {
-    text: "主页",
-    href: "/",
-    icon: "mdi-home-outline"
-  },
+  // {
+  //   text: "主页",
+  //   href: "/",
+  //   icon: "mdi-home-outline"
+  // },
   {
     text: "文章",
     href: "/articles",
