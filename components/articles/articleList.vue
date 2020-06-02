@@ -70,7 +70,7 @@
       </v-hover>
     </v-scale-transition>
     <v-pagination
-      color="blue-grey darken-3"
+      color="blue accent-2"
       v-model="page"
       :total-visible="9"
       :length="Math.ceil(filteredList.length / perPage)"

@@ -1,7 +1,7 @@
 // dependency: //
 <template>
   <div>
-    <v-btn class="mb-4" text color="teal darken-1" @click="$router.back()">
+    <v-btn class="mb-4" text color="indigo accent-3" @click="$router.back()">
       <v-icon left>mdi-menu-left</v-icon>back
     </v-btn>
 
