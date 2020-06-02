@@ -60,7 +60,7 @@
               </v-btn>
               <v-spacer></v-spacer>
               <div
-                class="d-flex align-center text--secondary font-weight-light mx-2"
+                class="d-flex align-center grey--text text--darken-2 font-weight-light mx-2"
               >
                 {{ item.last_update | fmtTime }}
               </div>
@@ -103,7 +103,14 @@
     filters: {
       fmtTime(value) {
         let [date, time] = value.split("T");
-        return date + ", " + time.slice(0, 5);
+        let hour = time.slice(0, 2) - 0;
+        let emoji = "";
+        if (hour >= 18 && hour < 21) {
+          emoji = "🌇";
+        } else if (hour < 18) {
+          emoji = "☀️";
+        } else emoji = "🌙";
+        return date + ", " + time.slice(0, 5) + " " + emoji;
       },
     },
     name: "blog",
