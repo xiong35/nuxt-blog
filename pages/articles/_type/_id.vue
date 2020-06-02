@@ -1,7 +1,12 @@
 // dependency: //
 <template>
   <div>
-    <v-btn class="mb-4" text color="indigo accent-3" @click="$router.back()">
+    <v-btn
+      class="mb-4"
+      text
+      color="indigo accent-3"
+      @click="$router.back()"
+    >
       <v-icon left>mdi-menu-left</v-icon>back
     </v-btn>
 
@@ -29,14 +34,24 @@
     data() {
       return {};
     },
+    validate({ params }) {
+      let valid = ["blog", "trap", "diary"];
+      if (valid.indexOf(params.type) == -1) return false;
+      return true;
+    },
     computed: {},
     watch: {},
     methods: {},
     created() {},
     mounted() {},
-    async asyncData({ params }) {
-      let rt_data = await getarticle(params.id, params.type);
-      return { content: rt_data.content.content };
+    async asyncData({ params, error }) {
+      try {
+        var rt_data = await getarticle(params.id, params.type);
+        return { content: rt_data.content.content };
+      } catch (err) {
+        error({ statusCode: 404, message: "page not found" });
+      }
+      // TODO fix back end
     },
   };
 </script>

@@ -152,7 +152,7 @@
     methods: {},
     created() {},
     mounted() {
-      getarticle("", typeMap[this.$props.type]).then((response) => {
+      getarticle("", typeMap[this.type]).then((response) => {
         this.articles = response.data;
         this.loading = false;
       });
