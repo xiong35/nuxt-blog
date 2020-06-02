@@ -1,5 +1,6 @@
 export const state = () => ({
-  activeTags: []
+  activeTags: [],
+  duckAlive: true
 })
 
 export const mutations = {
@@ -12,5 +13,8 @@ export const mutations = {
       }
     }
     state.activeTags.push(payload)
+  },
+  toggleDuck(state) {
+    state.duckAlive = !state.duckAlive
   },
 }

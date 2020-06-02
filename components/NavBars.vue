@@ -1,7 +1,10 @@
 <template>
   <nav class="navbars">
     <v-app-bar flat app hide-on-scroll color="white">
-      <v-app-bar-nav-icon class="grey--text text--darken-2" @click="drawer = !drawer" />
+      <v-app-bar-nav-icon
+        class="grey--text text--darken-2"
+        @click="drawer = !drawer"
+      />
       <v-toolbar-title class="font-weight-thin grey--text text--darken-2">
         🧸 Xiong<sup>35 </sup>'s Blog
       </v-toolbar-title>
@@ -29,7 +32,7 @@
       >
         <v-icon>mdi-format-list-bulleted</v-icon>
       </v-btn>
-      <v-btn fab color="grey darken-2" small text>
+      <v-btn @click="toggleDuck" fab color="grey darken-2" small text>
         <v-icon>mdi-duck</v-icon>
       </v-btn>
       <v-btn
@@ -56,7 +59,11 @@
     },
     computed: {},
     watch: {},
-    methods: {},
+    methods: {
+      toggleDuck() {
+        this.$store.commit("toggleDuck");
+      },
+    },
     created() {},
     mounted() {},
   };
