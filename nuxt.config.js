@@ -25,7 +25,8 @@ export default {
   ** Global CSS
   */
   css: [
-    "~/assets/reset.css"
+    "~/assets/reset.css",
+    "~/assets/transition.css"
   ],
   /*
   ** Plugins to load before mounting the App

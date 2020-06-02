@@ -40,6 +40,7 @@
   import { getTags } from "~/network/article";
 
   export default {
+    transition: "layout",
     name: "index",
     components: {
       articleList,

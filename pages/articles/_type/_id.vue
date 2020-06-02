@@ -29,6 +29,7 @@
   import { getarticle } from "~/network/article";
 
   export default {
+    transition: "layout",
     name: "articleContent",
     components: {},
     data() {

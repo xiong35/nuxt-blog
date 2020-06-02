@@ -52,6 +52,7 @@
   import about from "~/assets/myData/about";
 
   export default {
+    transition: "layout",
     name: "index",
     components: {},
     data() {
