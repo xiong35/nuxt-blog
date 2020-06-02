@@ -13,7 +13,7 @@
         outlined
         active-class="light-blue--text light-blue"
         v-for="(item, index) in tags"
-        @click="$store.commit('toggleActiveTag', item.tag_name)"
+        @click="chipClicked(item.tag_name)"
         :key="index"
       >
         {{ item.tag_name }}
@@ -25,7 +25,11 @@
 
     <v-tabs-items v-model="tab">
       <v-tab-item v-for="item in items" :key="item">
-        <article-list :tab="tab" :type="item"></article-list>
+        <article-list
+          :reset="reset"
+          :tab="tab"
+          :type="item"
+        ></article-list>
       </v-tab-item>
     </v-tabs-items>
   </div>
@@ -45,11 +49,17 @@
         tab: 0,
         items: ["文章", "踩坑记录", "日记"],
         activeTags: [],
+        reset: true,
       };
     },
     computed: {},
     watch: {},
-    methods: {},
+    methods: {
+      chipClicked(tag_name) {
+        this.$store.commit("toggleActiveTag", tag_name);
+        this.reset = !this.reset;
+      },
+    },
     created() {},
     mounted() {},
     async asyncData() {

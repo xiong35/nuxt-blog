@@ -96,6 +96,9 @@
         type: String,
         default: "文章",
       },
+      reset: {
+        type: Boolean,
+      },
     },
     filters: {
       fmtTime(value) {
@@ -134,7 +137,11 @@
         };
       },
     },
-    watch: {},
+    watch: {
+      reset() {
+        this.page = 1;
+      },
+    },
     methods: {},
     created() {},
     mounted() {
