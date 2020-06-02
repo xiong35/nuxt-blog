@@ -16,15 +16,9 @@
     </v-layout>
     <v-snackbar top v-model="snackBarQ" color="success" :timeout="1400">
       已复制QQ号到剪切板😉
-      <v-btn dark text @click="snackBarQ = false">
-        Close
-      </v-btn>
     </v-snackbar>
     <v-snackbar top v-model="snackBarV" color="success" :timeout="1400">
       已复制微信号到剪切板😉
-      <v-btn dark text @click="snackBarv = false">
-        Close
-      </v-btn>
     </v-snackbar>
   </v-col>
 </template>

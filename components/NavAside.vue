@@ -6,6 +6,25 @@
         <img :src="require('~/static/img/avatar.jpg')" alt="avatar" />
       </v-avatar>
     </v-list-item>
+
+    <v-list-item class="d-flex justify-center mb-4">
+      <v-skeleton-loader
+        v-if="meta.length == 0"
+        type="paragraph"
+        min-width="150"
+      ></v-skeleton-loader>
+      <v-simple-table dense v-else>
+        <template v-slot:default>
+          <tbody>
+            <tr v-for="(item, index) in fmtMeta" :key="index">
+              <td>{{ item.key }}</td>
+              <td>{{ item.value }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
+    </v-list-item>
+
     <v-list-item-group>
       <v-list-item
         v-for="(item, index) in links"
@@ -28,18 +47,46 @@
 
 <script>
   import links from "~/assets/links";
+  import { getMeta } from "~/network/meta";
 
   export default {
     name: "NavAside",
     components: {},
     data() {
-      return { links };
+      return { links, meta: [] };
     },
-    computed: {},
+    computed: {
+      fmtMeta() {
+        let new_date = new Date();
+        let old_date = new Date("2020-5-12 12:00:00");
+
+        let difftime = new_date - old_date;
+        let day = Math.round(difftime / 24 / 60 / 60 / 1000);
+
+        let fmt = [];
+
+        if (this.meta.length <= 0) {
+          return [];
+        }
+        for (let item of this.meta) {
+          let data = {};
+          data.key = item.key.split("/")[0];
+          data.value = item.value + " " + item.key.split("/")[1];
+          fmt.push(data);
+        }
+
+        fmt.push({ key: "站点存活", value: day + " 天" });
+
+        return fmt;
+      },
+    },
     watch: {},
     methods: {},
     created() {},
-    mounted() {},
+    async mounted() {
+      let data = await getMeta();
+      this.meta = data.data;
+    },
   };
 </script>
 <style scoped>

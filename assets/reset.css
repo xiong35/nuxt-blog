@@ -1,3 +1,9 @@
+pre code {
+  color: rgb(30, 31, 32) !important;
+  box-shadow: none !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+}
 .hljs code {
   color: #dad9d5 !important;
   box-shadow: none !important;
