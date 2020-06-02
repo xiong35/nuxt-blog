@@ -1,8 +1,8 @@
 <template>
   <nav class="navbars">
-    <v-app-bar flat app hide-on-scroll>
-      <v-app-bar-nav-icon class="grey--text" @click="drawer = !drawer" />
-      <v-toolbar-title class="font-weight-thin grey--text">
+    <v-app-bar flat app hide-on-scroll color="white">
+      <v-app-bar-nav-icon class="grey--text text--darken-2" @click="drawer = !drawer" />
+      <v-toolbar-title class="font-weight-thin grey--text text--darken-2">
         🧸 Xiong<sup>35 </sup>'s Blog
       </v-toolbar-title>
     </v-app-bar>
