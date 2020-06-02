@@ -54,6 +54,18 @@
   export default {
     transition: "layout",
     name: "index",
+    head() {
+      return {
+        title: "About Me",
+        meta: [
+          {
+            hid: "description",
+            name: "description",
+            content: "展示了我的特长和爱好等的个人简介页面",
+          },
+        ],
+      };
+    },
     components: {},
     data() {
       return {

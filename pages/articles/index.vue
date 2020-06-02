@@ -42,6 +42,18 @@
   export default {
     transition: "layout",
     name: "index",
+    head() {
+      return {
+        title: "Articals",
+        meta: [
+          {
+            hid: "description",
+            name: "description",
+            content: "展示了我所有的博文和踩坑记录",
+          },
+        ],
+      };
+    },
     components: {
       articleList,
     },

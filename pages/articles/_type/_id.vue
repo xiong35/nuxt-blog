@@ -31,6 +31,19 @@
   export default {
     transition: "layout",
     name: "articleContent",
+    head() {
+      let title = /^# (.*)$/gm.exec(this.content)[1];
+      return {
+        title,
+        meta: [
+          {
+            hid: "description",
+            name: "description",
+            content: title,
+          },
+        ],
+      };
+    },
     components: {},
     data() {
       return {};
