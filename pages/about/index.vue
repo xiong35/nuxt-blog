@@ -77,7 +77,7 @@
         {
           icon: "mdi-keyboard-variant",
           name: "a coder",
-          color: "green",
+          color: "green darken-2",
         },
         {
           icon: "mdi-guy-fawkes-mask",
@@ -96,6 +96,9 @@
         },
         {
           name: "👨‍💻 coding",
+        },
+        {
+          name: "🤸‍♂️ parkour",
         },
         {
           name: "🚴‍♂️ biking",
@@ -131,6 +134,14 @@
           name: "MARVEL",
           color: "rgb(163, 16, 0)",
         },
+        {
+          name: "知乎",
+          color: "rgb(0, 132, 255)",
+        },
+        {
+          name: "Bilibili",
+          color: "rgb(251, 114, 153)",
+        },
       ],
     },
     {
@@ -157,7 +168,7 @@
         {
           icon: "mdi-language-css3",
           name: "css",
-          color: "rgb(21, 114, 182)",
+          color: "rgb(48, 150, 216)",
         },
         {
           icon: "mdi-language-html5",
