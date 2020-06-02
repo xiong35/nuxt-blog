@@ -5,21 +5,19 @@
     <v-layout column wrap>
       <v-hover v-for="(item, index) in links" :key="index">
         <template v-slot="{ hover }">
-          <v-badge
-            bordered
-            color="grey"
-            :icon="item.icon"
-            overlap
-          >
+          <v-badge bordered color="grey" :icon="item.icon" overlap>
             <v-card
-              class="px-3 mb-3 py-2 text-left text--secondary"
+              class="mb-3 pa-3 text-left"
               :elevation="hover ? 7 : 0"
               outlined
             >
-              <a class="text--secondary" :href="item.href"
-                >{{ item.name }} </a
-              ><br />
-              <small class="text--secondary">{{ item.discription }}</small>
+              <a class="grey--text text--darken-3" :href="item.href"
+                >{{ item.name }}
+              </a>
+              <div class="mb-2"></div>
+              <small class="grey--text text--darken-2">
+                {{ item.discription }}
+              </small>
             </v-card>
           </v-badge>
         </template>
@@ -38,8 +36,8 @@
       icon: "mdi-alpha-j",
     },
     {
-      name: "William's Blog",
-      discription: "勤奋刻苦小哥哥的博客, 要去逛逛啊!",
+      name: "🦉Willog",
+      discription: "朝气蓬勃小老弟的博客, 要去逛逛啊!",
       href: "http://baidi-coder.github.io/",
       icon: "mdi-space-invaders",
     },

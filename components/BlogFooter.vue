@@ -1,6 +1,6 @@
 // dependency: //
 <template>
-  <v-row class="pa-6 text-center text--secondary">
+  <v-row class="pa-6 text-center grey--text text--darken-2">
     <contributors></contributors>
     <friends></friends>
     <social></social>
