@@ -10,6 +10,7 @@
           <nuxt />
         </v-col>
       </v-row>
+      <blog-footer />
     </v-content>
   </v-app>
 </template>
@@ -17,11 +18,13 @@
 <script>
   import NavBars from "~/components/NavBars";
   import NavAside from "~/components/NavAside";
+  import BlogFooter from "~/components/BlogFooter";
 
   export default {
     components: {
       NavBars,
       NavAside,
+      BlogFooter,
     },
     data() {
       return {};
