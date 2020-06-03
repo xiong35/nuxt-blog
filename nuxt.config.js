@@ -1,4 +1,7 @@
-import colors from 'vuetify/es5/util/colors'
+// import colors from 'vuetify/es5/util/colors'
+
+const axios = require('axios')
+
 
 export default {
   mode: 'universal',
@@ -84,6 +87,16 @@ export default {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+    }
+  },
+  generate: {
+    routes() {
+      return axios.get('http://xiong35.cn/data/artical/blog/')
+        .then((res) => {
+          return res.data.map((it) => {
+            return '/artical/blog/' + it.id
+          })
+        })
     }
   }
 }
