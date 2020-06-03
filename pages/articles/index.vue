@@ -74,7 +74,12 @@
       },
     },
     created() {},
-    mounted() {},
+    mounted() {
+      this.$nextTick(() => {
+        this.$nuxt.$loading.start();
+        setTimeout(() => this.$nuxt.$loading.finish(), 700);
+      });
+    },
     async asyncData() {
       let { data } = await getTags();
       return { tags: data };

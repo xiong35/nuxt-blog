@@ -57,11 +57,21 @@
     watch: {},
     methods: {},
     created() {},
-    mounted() {},
+    mounted() {
+      this.$nextTick(() => {
+        this.$nuxt.$loading.start();
+        setTimeout(() => this.$nuxt.$loading.finish(), 700);
+      });
+    },
     async asyncData({ params, error }) {
       try {
         var rt_data = await getarticle(params.id, params.type);
-        return { content: rt_data.content.content };
+        console.log(rt_data);
+        if (rt_data.content != undefined) {
+          return { content: rt_data.content.content };
+        } else if (rt_data.data != undefined) {
+          return { content: rt_data.data.solution };
+        }
       } catch (err) {
         error({ statusCode: 404, message: "page not found" });
       }
