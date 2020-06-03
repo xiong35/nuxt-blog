@@ -2,12 +2,14 @@
 
 const axios = require('axios')
 
-
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
+  router: {
+    base: '/static_blog/'
+  },
   head: {
     titleTemplate: '%s - ' + "xiong35's blog",
     title: "home",
@@ -93,8 +95,8 @@ export default {
     routes() {
       return axios.get('http://xiong35.cn/data/artical/blog/')
         .then((res) => {
-          return res.data.map((it) => {
-            return '/artical/blog/' + it.id
+          return res.data.data.map((it) => {
+            return '/articles/blog/' + it.id
           })
         })
     }

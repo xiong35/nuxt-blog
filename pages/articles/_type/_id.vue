@@ -66,7 +66,6 @@
     async asyncData({ params, error }) {
       try {
         var rt_data = await getarticle(params.id, params.type);
-        console.log(rt_data);
         if (rt_data.content != undefined) {
           return { content: rt_data.content.content };
         } else if (rt_data.data != undefined) {
