@@ -93,12 +93,21 @@ export default {
   },
   generate: {
     routes() {
-      return axios.get('http://xiong35.cn/data/artical/blog/')
+      let list = []
+      let blogs = axios.get('http://xiong35.cn/data/artical/blog/')
         .then((res) => {
           return res.data.data.map((it) => {
             return '/articles/blog/' + it.id
           })
         })
-    }
+      let traps = axios.get('http://xiong35.cn/data/artical/trap/')
+        .then((res) => {
+          return res.data.data.map((it) => {
+            return '/articles/trap/' + it.id
+          })
+        })
+      return list.concat(blogs).concat(traps)
+    },
+    dir: '/var/www/static_blog'
   }
 }

@@ -20,6 +20,7 @@
     <v-snackbar top v-model="snackBarV" color="success" :timeout="1400">
       已复制微信号到剪切板😉
     </v-snackbar>
+    <span class="d-none" id="qqnum">2242787</span>
   </v-col>
 </template>
 
@@ -45,7 +46,17 @@
           this.snackBarV = true;
           number = "xyl2242787668";
         }
-        navigator.clipboard.writeText(number);
+        let textArea = document.createElement("textarea");
+        textArea.style.zIndex = -1;
+        textArea.value = number;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand("copy");
+        } catch (err) {
+          console.log("该浏览器不支持点击复制到剪贴板");
+        }
+        document.body.removeChild(textArea);
       },
     },
     created() {},
