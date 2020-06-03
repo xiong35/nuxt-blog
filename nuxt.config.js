@@ -92,22 +92,16 @@ export default {
     }
   },
   generate: {
-    routes() {
-      let list = []
-      let blogs = axios.get('http://xiong35.cn/data/artical/blog/')
-        .then((res) => {
-          return res.data.data.map((it) => {
-            return '/articles/blog/' + it.id
-          })
-        })
-      let traps = axios.get('http://xiong35.cn/data/artical/trap/')
-        .then((res) => {
-          return res.data.data.map((it) => {
-            return '/articles/trap/' + it.id
-          })
-        })
-      return list.concat(blogs).concat(traps)
+    async routes() {
+      let res = await axios.get('http://xiong35.cn/data/artical/blog/')
+      let blogs = res.data.data.map((it) => {
+        return '/articles/blog/' + it.id
+      })
+      res = await axios.get('http://xiong35.cn/data/artical/trap/')
+      let traps = res.data.data.map((it) => {
+        return '/articles/trap/' + it.id
+      })
+      return traps.concat(blogs)
     },
-    dir: '/var/www/static_blog'
   }
 }
