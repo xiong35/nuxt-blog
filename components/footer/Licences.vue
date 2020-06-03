@@ -3,7 +3,7 @@
   <v-col class="pa-4 col-6 col-md-3">
     <h4>Licences</h4>
     <div class="pa-4">
-      <p>
+      <p class="caption">
         <a
           href="http://www.beian.miit.gov.cn/"
           class="href-link grey--text text--darken-1"
@@ -11,6 +11,38 @@
         >
       </p>
     </div>
+    <div class="text-center">
+      <div class="overline">MADE WITH</div>
+      <v-btn
+        color="green accent-4"
+        icon
+        small
+        href="https://zh.nuxtjs.org/"
+      >
+        <v-icon small>mdi-nuxt</v-icon>
+      </v-btn>
+      <v-icon x-small>mdi-plus</v-icon>
+      <v-btn
+        color="light-blue accent-2"
+        icon
+        small
+        href="https://vuetifyjs.com/zh-Hans/"
+      >
+        <v-icon small>mdi-vuetify</v-icon>
+      </v-btn>
+      <v-icon x-small>mdi-plus</v-icon>
+      <v-btn
+        text
+        rounded
+        color="green darken-4"
+        href="https://www.djangoproject.com/"
+        class="text-lowercase text--secondary"
+        small
+      >
+        django
+      </v-btn>
+    </div>
+    <div class="overline mt-5"><v-icon x-small>mdi-copyright</v-icon>2019-2020</div>
   </v-col>
 </template>
 
