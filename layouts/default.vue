@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div @click="callParticle">
-      <nav-bars></nav-bars>
+      <TheNavBars />
       <v-content>
         <v-row class="pa-md-6">
           <v-col class="pa-4 d-none d-md-flex col-md-3">
@@ -11,29 +11,29 @@
             <nuxt />
           </v-col>
         </v-row>
-        <blog-footer />
+        <TheBlogFooter />
       </v-content>
-      <particle ref="particle"></particle>
-      <duck ref="duck" />
+      <TheParticle ref="particle" />
+      <TheDuck ref="duck" />
     </div>
   </v-app>
 </template>
 
 <script>
-  import NavBars from "~/components/NavBars";
+  import TheNavBars from "~/components/TheNavBars";
   import NavAside from "~/components/NavAside";
-  import BlogFooter from "~/components/BlogFooter";
+  import TheBlogFooter from "~/components/TheBlogFooter";
 
-  import Duck from "~/components/additionalApp/Duck";
-  import particle from "~/components/additionalApp/particle";
+  import TheDuck from "~/components/TheAdditionalApp/TheDuck";
+  import TheParticle from "~/components/TheAdditionalApp/Theparticle";
 
   export default {
     components: {
-      NavBars,
+      TheNavBars,
       NavAside,
-      BlogFooter,
-      Duck,
-      particle,
+      TheBlogFooter,
+      TheDuck,
+      TheParticle,
     },
     data() {
       return {};

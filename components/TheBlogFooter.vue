@@ -9,10 +9,10 @@
 </template>
 
 <script>
-  import Friends from "~/components/footer/Friends";
-  import Contributors from "~/components/footer/Contributors";
-  import Social from "~/components/footer/Social";
-  import Licences from "~/components/footer/Licences";
+  import Friends from "~/components/TheFooter/Friends";
+  import Contributors from "~/components/TheFooter/Contributors";
+  import Social from "~/components/TheFooter/Social";
+  import Licences from "~/components/TheFooter/Licences";
 
   export default {
     name: "BlogFooter",
