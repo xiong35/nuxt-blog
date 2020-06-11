@@ -74,12 +74,7 @@
       },
     },
     created() {},
-    mounted() {
-      this.$nextTick(() => {
-        this.$nuxt.$loading.start();
-        setTimeout(() => this.$nuxt.$loading.finish(), 700);
-      });
-    },
+    mounted() {},
     async asyncData() {
       let { data } = await getTags();
       return { tags: data };

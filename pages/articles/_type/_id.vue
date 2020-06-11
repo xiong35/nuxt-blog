@@ -57,12 +57,7 @@
     watch: {},
     methods: {},
     created() {},
-    mounted() {
-      this.$nextTick(() => {
-        this.$nuxt.$loading.start();
-        setTimeout(() => this.$nuxt.$loading.finish(), 700);
-      });
-    },
+    mounted() {},
     async asyncData({ params, error }) {
       try {
         var rt_data = await getarticle(params.id, params.type);
