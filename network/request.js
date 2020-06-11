@@ -2,7 +2,8 @@ import axios from "axios";
 
 export function request(config) {
   const instance = axios.create({
-    baseURL: "http://xiong35.cn/data",
+    // FIXME change this
+    baseURL: "http://localhost:8080/",
     timeout: 5000
   });
 

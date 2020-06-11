@@ -51,6 +51,8 @@
 <script>
   import about from "~/assets/myData/about";
 
+  import { getCan } from "~/network/meta";
+
   export default {
     transition: "layout",
     name: "index",
@@ -88,6 +90,11 @@
     },
     created() {},
     mounted() {},
+    async asyncData() {
+      let { data } = getCan();
+      console.log(data);
+      return { about: { category: "I can", items: data.data } };
+    },
   };
 </script>
 <style scoped></style>
