@@ -33,18 +33,20 @@
           <v-card flat class="ma-3" :elevation="hover ? 7 : 0" outlined>
             <v-card-text class="pb-1">
               <p class="headline text--primary">
-                {{ item.headline || item.problem }}
+                {{ item.Headline }}
               </p>
 
               <v-chip
-                v-for="(tag, ind) in item.tags"
+                v-for="(tag, ind) in item.Tags"
                 outlined
                 :key="ind"
                 class="mx-1"
                 active-class="light-blue--text light-blue"
-                :input-value="$store.state.activeTags.indexOf(tag) != -1"
+                :input-value="
+                  $store.state.activeTags.indexOf(tag.TagName) != -1
+                "
               >
-                {{ tag }}
+                {{ tag.TagName }}
               </v-chip>
             </v-card-text>
             <v-card-actions class="px-3">
@@ -53,7 +55,7 @@
                 exact
                 append
                 nuxt
-                :to="to(item.id)"
+                :to="to(item.ID)"
                 color="deep-purple accent-4"
               >
                 Read More
@@ -62,7 +64,7 @@
               <div
                 class="d-flex align-center grey--text text--darken-2 font-weight-light mx-2"
               >
-                {{ item.last_update | fmtTime }}
+                {{ item.UpdatedAt | fmtTime }}
               </div>
             </v-card-actions>
           </v-card>
@@ -79,7 +81,7 @@
 </template>
 
 <script>
-  import { getarticle } from "~/network/article";
+  import { getArticle } from "~/network/article";
 
   let typeMap = {
     文章: "blog",
@@ -102,7 +104,7 @@
     filters: {
       fmtTime(value) {
         let [date, time] = value.split("T");
-        let hour = time.slice(0, 2) - 0;
+        let hour = time.split("+")[0].slice(0, 2) - 0;
         let emoji = "";
         if (hour >= 18 && hour < 21) {
           emoji = "🌇";
@@ -130,7 +132,7 @@
       filteredList() {
         return this.articles.filter((value, index, array) => {
           for (let tag of this.$store.state.activeTags) {
-            if (value.tags.indexOf(tag) == -1) {
+            if (value.Tags.map((it) => it.TagName).indexOf(tag) == -1) {
               return false;
             }
           }
@@ -151,7 +153,7 @@
     methods: {},
     created() {},
     mounted() {
-      getarticle("", typeMap[this.type]).then((response) => {
+      getArticle("", typeMap[this.type]).then((response) => {
         this.articles = response.data;
         this.loading = false;
       });

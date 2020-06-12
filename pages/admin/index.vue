@@ -63,7 +63,7 @@
 
 <script>
   import { getTags } from "~/network/article";
-  import { postarticle, login } from "~/network/admin";
+  import { postArticle, login } from "~/network/admin";
 
   function setOrGetToken(token) {
     if (token) {
@@ -156,7 +156,7 @@
           fmtData.token = response.token;
           setOrGetToken(response.token);
 
-          postarticle(fmtData, type)
+          postArticle(fmtData, type)
             .then((response) => {
               if (response.status == 200) {
                 alert("成功!");

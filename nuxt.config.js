@@ -8,7 +8,8 @@ export default {
   ** Headers of the page
   */
   router: {
-    base: '/static_blog/'
+    // TODO change base?
+    // base: '/static_blog/'
   },
   head: {
     titleTemplate: '%s - ' + "xiong35's blog",

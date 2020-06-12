@@ -77,6 +77,7 @@
     mounted() {},
     async asyncData() {
       let { data } = await getTags();
+
       return { tags: data };
     },
   };

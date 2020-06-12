@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import { getarticle } from "~/network/article";
+  import { getArticle } from "~/network/article";
 
   export default {
     transition: "layout",
@@ -60,7 +60,7 @@
     mounted() {},
     async asyncData({ params, error }) {
       try {
-        var rt_data = await getarticle(params.id, params.type);
+        var rt_data = await getArticle(params.id, params.type);
         if (rt_data.content != undefined) {
           return { content: rt_data.content.content };
         } else if (rt_data.data != undefined) {
