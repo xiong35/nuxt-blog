@@ -32,7 +32,8 @@
     transition: "layout",
     name: "articleContent",
     head() {
-      let title = /^# (.*)$/gm.exec(this.content)[1];
+      let titleReg = /^# (.*)$/gm.exec(this.content);
+      let title = titleReg ? titleReg[1] : this.content.split("\n")[0];
       return {
         title,
         meta: [
@@ -59,17 +60,8 @@
     created() {},
     mounted() {},
     async asyncData({ params, error }) {
-      try {
-        var rt_data = await getArticle(params.id, params.type);
-        if (rt_data.content != undefined) {
-          return { content: rt_data.content.content };
-        } else if (rt_data.data != undefined) {
-          return { content: rt_data.data.solution };
-        }
-      } catch (err) {
-        error({ statusCode: 404, message: "page not found" });
-      }
-      // TODO fix back end
+      var { data } = await getArticle(params.id, params.type);
+      return { content: data.Content };
     },
   };
 </script>
