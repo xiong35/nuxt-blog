@@ -9,7 +9,6 @@ export function getMeta() {
 export function commitKill() {
   return request({
     url: "meta/duck",
-    method: 'post',
   })
 }
 

@@ -19,7 +19,7 @@ export function login(password, token = '') {
   }
 
   return request({
-    url: "authorize",
+    url: "foo",
     data,
     method: 'post',
     headers: {
