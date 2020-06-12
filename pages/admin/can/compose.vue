@@ -1,16 +1,21 @@
 // dependency: //
 <template>
   <div class="index">
-    <v-tabs v-model="tab" background-color="transparent" color="blue">
+    <v-tabs
+      centered
+      v-model="tab"
+      background-color="transparent"
+      color="blue"
+    >
       <v-tab v-for="item in items" :key="item">
         {{ item }}
       </v-tab>
     </v-tabs>
     <v-tabs-items v-model="tab">
-      <v-tab-item>
+      <v-tab-item class="mt-5">
         <v-card flat color="grey lighten-4">
           <v-row>
-            <v-col cols="12" md="6">
+            <v-col cols="12" md="6" class="mx-auto">
               <v-text-field
                 label="name"
                 autofocus
@@ -20,7 +25,9 @@
                 outlined
               ></v-text-field>
             </v-col>
-            <v-col cols="12" md="6">
+          </v-row>
+          <v-row>
+            <v-col cols="12" md="6" class="mx-auto">
               <v-text-field
                 label="icon"
                 clearable
@@ -29,23 +36,29 @@
                 outlined
               ></v-text-field>
             </v-col>
-            <v-row cols="12">
-              <v-color-picker class="mx-auto" v-model="color"></v-color-picker>
-            </v-row>
+          </v-row>
+          <v-row cols="12">
+            <v-color-picker
+              class="mx-auto"
+              v-model="color"
+            ></v-color-picker>
+          </v-row>
+          <v-row>
             <v-col class="mt-7" cols="12">
-              <span>preview:</span>&nbsp;&nbsp;
+              <span class="grey--text">preview:</span>
               <v-btn
                 text
                 rounded
                 :color="color || null"
                 elevation="2"
-                class="text-capitalize"
+                class="text-capitalize ml-6 mr-12"
               >
                 <v-icon :left="name != ''" v-if="icon">
                   {{ icon }}
                 </v-icon>
                 {{ name }}
               </v-btn>
+              <v-btn color="info" outlined @click="submit">submit</v-btn>
             </v-col>
           </v-row>
         </v-card>
@@ -55,7 +68,7 @@
 </template>
 
 <script>
-  import { postArticle } from "~/network/admin";
+  import { postCan } from "~/network/admin";
 
   import checkAuth from "~/utils/checkAuth";
 
@@ -85,14 +98,17 @@
           return;
         }
 
-        let fmtData = this.fmtData;
+        let data = {
+          icon: this.icon,
+          name: this.name,
+          color: this.color,
+        };
 
-        let type = ["blog", "trap", "tags"][this.tab];
         let token = localStorage.getItem("token") || "";
 
-        fmtData.token = token;
+        data.token = token;
 
-        let { status } = await postArticle(fmtData, type);
+        let { status } = await postCan(data);
 
         if (status == 200) {
           alert("成功!");
@@ -105,10 +121,6 @@
           this.$router.replace("/");
           return;
         }
-
-        let { data } = await getTags();
-        this.tags = data;
-        this.dialog = false;
       },
     },
     created() {},

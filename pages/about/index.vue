@@ -32,13 +32,38 @@
             {{ item.name }}
           </v-btn>
         </div>
+      </v-layout>
+    </v-card>
+
+    <v-card class="my-4" flat>
+      <v-card-title primary-title>
+        {{ asyncAbout.category }}
+      </v-card-title>
+      <v-layout row wrap class="px-3">
+        <div
+          :class="getPadding()"
+          v-for="(item, ind) in asyncAbout.items"
+          :key="ind"
+        >
+          <v-btn
+            text
+            rounded
+            :elevation="getElevation()"
+            :color="item.color || null"
+            class="text-capitalize"
+          >
+            <v-icon :left="item.name != null" v-if="item.icon">
+              {{ item.icon }}
+            </v-icon>
+            {{ item.name }}
+          </v-btn>
+        </div>
         <div class="ma-1" :class="getPadding()">
           <v-btn
             text
             rounded
             :elevation="getElevation()"
             class="font-weight-light"
-            v-if="category.category == 'I can'"
           >
             L<sup>A</sup>T<sub>E</sub>X
           </v-btn>
@@ -91,9 +116,8 @@
     created() {},
     mounted() {},
     async asyncData() {
-      let { data } = getCan();
-      console.log(data);
-      return { about: { category: "I can", items: data.data } };
+      let { data } = await getCan();
+      return { asyncAbout: { category: "I can", items: data } };
     },
   };
 </script>

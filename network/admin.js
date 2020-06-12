@@ -12,6 +12,17 @@ export function postArticle(data, type = "blog") {
   });
 }
 
+export function putArticle(data) {
+  return request({
+    url: `/articles/put`,
+    data,
+    method: 'put',
+    headers: {
+      "Content-Type": "application/json;"
+    }
+  });
+}
+
 export function login(password, token = '') {
   let data = { password }
   if (token) {
@@ -26,4 +37,13 @@ export function login(password, token = '') {
       "Content-Type": "application/json;"
     }
   });
+}
+
+
+export function postCan(data) {
+  return request({
+    url: "can",
+    method: 'post',
+    data
+  })
 }
