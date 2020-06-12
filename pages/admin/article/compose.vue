@@ -59,18 +59,9 @@
 
 <script>
   import { getTags } from "~/network/article";
-  import { postArticle, login } from "~/network/admin";
+  import { postArticle } from "~/network/admin";
 
   import checkAuth from "~/utils/checkAuth";
-
-  function setOrGetToken(token) {
-    if (token) {
-      localStorage.setItem("token", token);
-    } else {
-      var token = localStorage.getItem("token");
-    }
-    return token;
-  }
 
   let config = {
     underline: true, // 下划线
