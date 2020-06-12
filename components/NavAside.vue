@@ -16,9 +16,9 @@
       <v-simple-table dense v-else>
         <template v-slot:default>
           <tbody>
-            <tr v-for="(item, index) in fmtMeta" :key="index">
+            <tr v-for="(item, index) in meta" :key="index">
               <td>{{ item.key }}</td>
-              <td>{{ item.value }}</td>
+              <td>{{ item.value + " " + item.addition }}</td>
             </tr>
           </tbody>
         </template>
@@ -55,37 +55,22 @@
     data() {
       return { links, meta: [] };
     },
-    computed: {
-      fmtMeta() {
-        let new_date = new Date();
-        let old_date = new Date("2020-5-12 12:00:00");
-
-        let difftime = new_date - old_date;
-        let day = Math.round(difftime / 24 / 60 / 60 / 1000);
-
-        let fmt = [];
-
-        if (this.meta.length <= 0) {
-          return [];
-        }
-        for (let item of this.meta) {
-          let data = {};
-          data.key = item.key.split("/")[0];
-          data.value = item.value + " " + item.key.split("/")[1];
-          fmt.push(data);
-        }
-
-        fmt.push({ key: "站点存活", value: day + " 天" });
-
-        return fmt;
-      },
-    },
+    computed: {},
     watch: {},
     methods: {},
     created() {},
     async mounted() {
-      let data = await getMeta();
-      this.meta = data.data;
+      let { data } = await getMeta();
+
+      let new_date = new Date();
+      let old_date = new Date("2020-5-12 12:00:00");
+
+      let difftime = new_date - old_date;
+      let day = Math.round(difftime / 24 / 60 / 60 / 1000);
+
+      data.push({ key: "站点存活", value: day, addition: "天" });
+
+      this.meta = data;
     },
   };
 </script>
