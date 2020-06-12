@@ -29,11 +29,11 @@
       v-model="content"
     />
 
-    <v-dialog v-model="dialog" persistent class="pa-3">
+    <v-dialog v-model="dialog" persistent class="">
       <template v-slot:activator="{ on }">
         <v-btn class="ma-7" v-on="on" color="info">submit</v-btn>
       </template>
-      <v-card class="grey lighten-3">
+      <v-card class="grey lighten-3 pa-4">
         <v-card-title class="headline">check</v-card-title>
         <v-card-text>
           <div class="pa-3" v-for="(value, name) in fmtData" :key="name">
@@ -42,19 +42,15 @@
             <hr />
           </div>
         </v-card-text>
-        <v-text-field
-          label="Pass Word"
-          v-model="password"
-          outlined
-          class="mx-5 my-3"
-        ></v-text-field>
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="red darken-1" text @click="dialog = false">
+          <v-btn color="red darken-1" outlined @click="dialog = false">
             cancel
           </v-btn>
-          <v-btn color="green darken-1" text @click="submit">submit</v-btn>
+          <v-btn color="green darken-1" outlined @click="submit">
+            submit
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -100,7 +96,6 @@
         activeTags: [],
         config,
         content: "",
-        password: "",
         dialog: false,
       };
     },
@@ -118,29 +113,21 @@
         }
         let content = this.content;
         try {
-          var one = /^# (.*)$/gm.exec(content)[1] || "";
-          var two = /^## (.*)$/gm.exec(content)[1] || "";
+          var one = /^# (.+)$/m.exec(content)[1] || "";
         } catch (error) {}
         let data = {};
         switch (this.tab) {
           case 0:
+          case 1:
             data = {
               headline: one,
               content,
               tags: this.activeTagNames,
             };
             break;
-          case 1:
-            data = {
-              context: one,
-              problem: two,
-              solution: content,
-              tag_names: this.activeTagNames,
-            };
-            break;
           case 2:
             data = {
-              tag_names: [this.content],
+              tag_name: content,
             };
             break;
         }
@@ -150,22 +137,35 @@
     watch: {},
     methods: {
       async submit() {
+        const permission = localStorage.getItem("permission") - 0 || 0;
+
+        if (permission < 9) {
+          alert("未登录!");
+          this.$router.replace("/admin/login");
+          return;
+        }
+
         let fmtData = this.fmtData;
-        let type = ["blog", "trap", "tag"][this.tab];
-        let oldToken = setOrGetToken();
-        let { token } = await login(this.password, oldToken);
+
+        let type = ["blog", "trap", "tags"][this.tab];
+        let token = localStorage.getItem("token") || "";
 
         fmtData.token = token;
-        setOrGetToken(token);
 
         let { status } = await postArticle(fmtData, type);
+
         if (status == 200) {
           alert("成功!");
         } else if (status == 401) {
           alert("未登录!");
+          this.$router.replace("/admin/login");
+          return;
         } else {
           alert("error");
+          this.$router.replace("/");
+          return;
         }
+
         let { data } = await getTags();
         this.tags = data;
         this.dialog = false;

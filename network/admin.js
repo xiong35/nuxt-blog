@@ -1,9 +1,9 @@
 import { request } from "./request";
 
 export function postArticle(data, type = "blog") {
-  // blog, trap, tag
+  // blog, trap, tags
   return request({
-    url: `/artical/${type}`,
+    url: `/articles/${type}`,
     data,
     method: 'post',
     headers: {

@@ -70,10 +70,10 @@
           ""
         );
         localStorage.setItem("token", token);
+        localStorage.setItem("permission", permission);
 
         if (permission >= 9) {
           localStorage.setItem("wrong", 0);
-          localStorage.setItem("permission", permission);
           this.$router.push("/admin");
         } else {
           localStorage.setItem("wrong", wrong + 1);
