@@ -10,9 +10,9 @@
         <v-icon left>mdi-logout-variant mdi-rotate-180</v-icon>BACK
       </v-btn>
     </v-app-bar>
-    <v-content class="pa-md-10 mt-9 pa-5 grey text-center lighten-4">
+    <v-main class="pa-md-10 mt-9 pa-5 grey text-center lighten-4">
       <nuxt />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

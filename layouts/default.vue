@@ -2,7 +2,7 @@
   <v-app>
     <div @click="callParticle">
       <TheNavBars />
-      <v-content>
+      <v-main>
         <v-row class="pa-md-6">
           <v-col class="pa-4 d-none d-md-flex col-md-3">
             <nav-aside />
@@ -12,7 +12,7 @@
           </v-col>
         </v-row>
         <TheBlogFooter />
-      </v-content>
+      </v-main>
       <TheParticle ref="particle" />
       <TheDuck ref="duck" />
     </div>
@@ -25,7 +25,7 @@
   import TheBlogFooter from "~/components/TheBlogFooter";
 
   import TheDuck from "~/components/TheAdditionalApp/TheDuck";
-  import TheParticle from "~/components/TheAdditionalApp/Theparticle";
+  import TheParticle from "~/components/TheAdditionalApp/TheParticle";
 
   export default {
     components: {
