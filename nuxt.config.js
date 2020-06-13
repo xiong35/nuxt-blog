@@ -9,7 +9,7 @@ export default {
   */
   router: {
     // TODO change base?
-    // base: '/static_blog/'
+    base: '/blog2.0/'
   },
   head: {
     titleTemplate: '%s - ' + "xiong35's blog",

@@ -3,7 +3,7 @@ import axios from "axios";
 export function request(config) {
   const instance = axios.create({
     // FIXME change this
-    baseURL: "http://localhost:8080/",
+    baseURL: "http://localhost:8080/data",
     timeout: 5000
   });
 
