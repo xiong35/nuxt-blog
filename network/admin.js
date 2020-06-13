@@ -30,7 +30,7 @@ export function login(password, token = '') {
   }
 
   return request({
-    url: "foo",
+    url: "articles/blog",
     data,
     method: 'post',
     headers: {

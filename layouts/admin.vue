@@ -9,7 +9,7 @@
         🧸 Xiong<sup>35 </sup>'s Blog Admin
       </v-toolbar-title>
     </v-app-bar>
-    <v-content class="pa-md-10 mt-7 pa-5 grey text-center lighten-4">
+    <v-content class="pa-md-10 mt-9 pa-5 grey text-center lighten-4">
       <nuxt />
     </v-content>
   </v-app>

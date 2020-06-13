@@ -1,13 +1,20 @@
 // dependency: //
 <template>
-  <v-card outlined max-width="700" class="ma-auto login pa-12 text-center">
+  <v-card outlined max-width="700" class="mx-auto login pa-12 text-center">
     <v-card-title>LOGIN</v-card-title>
     <v-text-field
       v-model="password"
       label="Password"
-      :hint="hint"
+      :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+      :rules="[rules.required]"
+      :type="show ? 'text' : 'password'"
       persistent-hint
+      autofocus
+      :hint="hint"
+      :error="wrong >= 3"
       outlined
+      @click:append="show = !show"
+      ref="pw"
     ></v-text-field>
     <v-card-actions>
       <v-spacer></v-spacer>
@@ -15,7 +22,7 @@
       <v-btn
         outlined
         color="success"
-        :disabled="wrong > 3"
+        :disabled="wrong >= 3"
         :loading="loading"
         @click="handleLogin"
       >
@@ -46,6 +53,10 @@
         password: "",
         wrong: 0,
         loading: false,
+        show: false,
+        rules: {
+          required: (value) => !!value || "Required.",
+        },
       };
     },
     computed: {
@@ -62,6 +73,9 @@
     watch: {},
     methods: {
       async handleLogin() {
+        if (!this.$refs.pw.validate()) {
+          return;
+        }
         this.loading = true;
         const wrong = localStorage.getItem("wrong") - 0 || 0;
 
@@ -69,11 +83,13 @@
           this.password,
           ""
         );
+
         localStorage.setItem("token", token);
         localStorage.setItem("permission", permission);
 
         if (permission >= 9) {
           localStorage.setItem("wrong", 0);
+          this.wrong = 0;
           this.$router.push("/admin");
         } else {
           localStorage.setItem("wrong", wrong + 1);

@@ -8,6 +8,10 @@
       <v-toolbar-title class="font-weight-thin grey--text text--darken-2">
         🧸 Xiong<sup>35 </sup>'s Blog
       </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn color="grey darken-2" @click.stop="login" text>
+        <v-icon left>mdi-login-variant</v-icon>login
+      </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer
@@ -62,6 +66,11 @@
     methods: {
       toggleDuck() {
         this.$store.commit("toggleDuck");
+      },
+      login() {
+        this.$nextTick(() => {
+          this.$router.push("/admin/login");
+        });
       },
     },
     created() {},

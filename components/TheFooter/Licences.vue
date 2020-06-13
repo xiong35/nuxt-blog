@@ -50,14 +50,12 @@
       </v-btn>
       <v-icon x-small>mdi-plus</v-icon>
       <v-btn
-        text
-        rounded
-        color="green darken-4"
-        href="https://www.djangoproject.com/"
-        class="text-lowercase text--secondary"
+        icon
+        color="rgb(4,173,212)"
+        href="https://golang.org/"
         small
       >
-        django
+        <v-icon>mdi-language-go</v-icon>
       </v-btn>
     </div>
     <div class="overline mt-5">
