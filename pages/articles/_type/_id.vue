@@ -1,14 +1,25 @@
 // dependency: //
 <template>
   <div>
-    <v-btn
-      class="mb-4"
-      text
-      color="indigo accent-3"
-      @click="$router.back()"
-    >
-      <v-icon left>mdi-menu-left</v-icon>back
-    </v-btn>
+    <v-row>
+      <v-btn
+        class="mb-4"
+        text
+        color="indigo accent-3"
+        @click="$router.back()"
+      >
+        <v-icon left>mdi-menu-left</v-icon>back
+      </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn
+        class="mr-3"
+        color="indigo accent-2"
+        @click="editPage"
+        text
+        v-if="editable"
+        ><v-icon>mdi-eraser</v-icon> edit
+      </v-btn>
+    </v-row>
 
     <mavon-editor
       class="article-content"
@@ -47,7 +58,9 @@
     },
     components: {},
     data() {
-      return {};
+      return {
+        editable: false,
+      };
     },
     validate({ params }) {
       let valid = ["blog", "trap"];
@@ -56,9 +69,21 @@
     },
     computed: {},
     watch: {},
-    methods: {},
+    methods: {
+      editPage() {
+        this.$router.push({
+          path: "/admin/article/manage",
+          query: { id: this.$route.params.id },
+        });
+      },
+    },
     created() {},
-    mounted() {},
+    mounted() {
+      let permission = localStorage.getItem("permission") - 0 || 0;
+      if (permission >= 9) {
+        this.editable = true;
+      }
+    },
     async asyncData({ params, error }) {
       var { data } = await getArticle(params.id, params.type);
       return { content: data.Content };
