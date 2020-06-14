@@ -1,13 +1,13 @@
 // dependency: //
 <template>
-  <div>
+  <div class="px-4">
     <v-tabs v-model="tab" color="indigo accent-3">
       <v-tab v-for="item in items" :key="item">
         {{ item }}
       </v-tab>
     </v-tabs>
 
-    <v-chip-group class="px-4" v-model="activeTags" column multiple>
+    <v-chip-group v-model="activeTags" column multiple>
       <v-chip
         filter
         outlined
@@ -78,7 +78,7 @@
     async asyncData() {
       let { data } = await getTags();
 
-      return { tags: data };
+      return { tags: data.reverse() };
     },
   };
 </script>

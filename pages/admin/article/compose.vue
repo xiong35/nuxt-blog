@@ -158,7 +158,7 @@
         }
 
         let { data } = await getTags();
-        this.tags = data;
+        this.tags = data.reverse();
         this.dialog = false;
       },
     },
@@ -168,7 +168,7 @@
     },
     async asyncData() {
       let { data } = await getTags();
-      return { tags: data };
+      return { tags: data.reverse() };
     },
   };
 </script>

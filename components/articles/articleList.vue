@@ -27,7 +27,7 @@
 
       <v-hover v-for="(item, index) in pagedList" :key="index">
         <template v-slot="{ hover }">
-          <v-card flat class="ma-3 transition-swing" :elevation="hover ? 7 : 0" outlined>
+          <v-card flat class="my-3 transition-swing" :elevation="hover ? 7 : 0" outlined>
             <v-card-text class="pb-1">
               <p class="headline text--primary">{{ item.Headline | clip }}</p>
 

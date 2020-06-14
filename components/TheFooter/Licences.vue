@@ -7,54 +7,29 @@
         <a
           href="http://www.beian.miit.gov.cn/"
           class="href-link grey--text text--darken-1"
-          >鄂ICP备20007921号-1</a
-        >
+        >鄂ICP备20007921号-1</a>
       </p>
     </div>
-    <div class="d-flex justify-center pb-4">
+    <div class="d-flex align-center justify-center pb-5">
       <a
-        class="caption"
+        class="href-link grey--text text--darken-1 caption"
         href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011102003909"
-        ><img src="~/static/img/beian.png" style="float: left;" />
-        <p
-          style="
-            float: left;
-            height: 20px;
-            line-height: 20px;
-            margin: 0px 0px 0px 5px;
-            color: #939393;
-          "
-        >
-          鄂公网安备 42011102003909号
-        </p>
+      >
+        <img src="~/static/img/beian.png" style="height: 0.8rem; width: 0.8rem;" />
+        鄂公网安备 42011102003909号
       </a>
     </div>
     <div class="text-center">
       <div class="overline">MADE WITH</div>
-      <v-btn
-        color="green accent-4"
-        icon
-        small
-        href="https://zh.nuxtjs.org/"
-      >
+      <v-btn color="green accent-4" icon small href="https://zh.nuxtjs.org/">
         <v-icon small>mdi-nuxt</v-icon>
       </v-btn>
       <v-icon x-small>mdi-plus</v-icon>
-      <v-btn
-        color="light-blue accent-2"
-        icon
-        small
-        href="https://vuetifyjs.com/zh-Hans/"
-      >
+      <v-btn color="light-blue accent-2" icon small href="https://vuetifyjs.com/zh-Hans/">
         <v-icon small>mdi-vuetify</v-icon>
       </v-btn>
       <v-icon x-small>mdi-plus</v-icon>
-      <v-btn
-        icon
-        color="rgb(4,173,212)"
-        href="https://golang.org/"
-        small
-      >
+      <v-btn icon color="rgb(4,173,212)" href="https://golang.org/" small>
         <v-icon>mdi-language-go</v-icon>
       </v-btn>
     </div>
@@ -75,7 +50,7 @@
     watch: {},
     methods: {},
     created() {},
-    mounted() {},
+    mounted() {}
   };
 </script>
 <style scoped>
