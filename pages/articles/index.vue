@@ -44,7 +44,7 @@
     name: "index",
     head() {
       return {
-        title: "Articals",
+        title: "Articles",
         meta: [
           {
             hid: "description",

@@ -94,11 +94,11 @@ export default {
   },
   generate: {
     async routes() {
-      let res = await axios.get('http://xiong35.cn/data/artical/blog/')
+      let res = await axios.get('http://xiong35.cn/data/article/blog/')
       let blogs = res.data.data.map((it) => {
         return '/articles/blog/' + it.id
       })
-      res = await axios.get('http://xiong35.cn/data/artical/trap/')
+      res = await axios.get('http://xiong35.cn/data/article/trap/')
       let traps = res.data.data.map((it) => {
         return '/articles/trap/' + it.id
       })
