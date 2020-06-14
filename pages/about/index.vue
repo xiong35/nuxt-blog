@@ -32,13 +32,12 @@
             :elevation="getElevation()"
             :color="delAlpha(item.color) || null"
             class="text-capitalize"
+            v-if="item.name != 'latex'"
           >
             <v-icon :left="item.name != ''" v-if="item.icon">{{ item.icon }}</v-icon>
             {{ item.name }}
           </v-btn>
-        </div>
-        <div class="ma-1" :class="getPadding()">
-          <v-btn text rounded :elevation="getElevation()" class="font-weight-light">
+          <v-btn v-else text rounded :elevation="getElevation()" class="font-weight-light">
             L
             <sup>A</sup>T
             <sub>E</sub>X
