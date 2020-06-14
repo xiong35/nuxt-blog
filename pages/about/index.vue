@@ -15,7 +15,7 @@
             :color="item.color || null"
             class="text-capitalize"
           >
-            <v-icon :left="item.name != null" v-if="item.icon">{{ item.icon }}</v-icon>
+            <v-icon :left="item.name != ''" v-if="item.icon">{{ item.icon }}</v-icon>
             {{ item.name }}
           </v-btn>
         </div>
@@ -33,7 +33,7 @@
             :color="delAlpha(item.color) || null"
             class="text-capitalize"
           >
-            <v-icon :left="item.name != null" v-if="item.icon">{{ item.icon }}</v-icon>
+            <v-icon :left="item.name != ''" v-if="item.icon">{{ item.icon }}</v-icon>
             {{ item.name }}
           </v-btn>
         </div>
