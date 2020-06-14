@@ -7,7 +7,7 @@
         <template v-slot="{ hover }">
           <v-badge bordered color="grey" :icon="item.icon" overlap>
             <v-card
-              class="mb-3 pa-3 text-left"
+              class="mb-3 pa-3 text-left transition-swing"
               :elevation="hover ? 7 : 0"
               outlined
             >
