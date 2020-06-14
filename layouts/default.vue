@@ -33,7 +33,7 @@
       NavAside,
       TheBlogFooter,
       TheDuck,
-      TheParticle,
+      TheParticle
     },
     data() {
       return {};
@@ -41,9 +41,25 @@
     methods: {
       callParticle(event) {
         this.$refs.particle.fatherClick(event);
-      },
-    },
+      }
+    }
   };
 </script>
 
-<style scoped></style>
+<style>
+  ::selection {
+    color: #ffffff;
+    background-color: #41afee;
+    text-shadow: none;
+  }
+  ::-moz-selection {
+    color: #ffffff;
+    background-color: #41afee;
+    text-shadow: none;
+  }
+  ::-webkit-selection {
+    color: #ffffff;
+    background-color: #41afee;
+    text-shadow: none;
+  }
+</style>

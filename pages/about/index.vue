@@ -4,21 +4,10 @@
     <p class="display-3">
       <v-icon class="display-4 black--text">mdi-alpha-i</v-icon>...
     </p>
-    <v-card
-      v-for="(category, index) in about"
-      :key="index"
-      class="my-4"
-      flat
-    >
-      <v-card-title primary-title>
-        {{ category.category }}
-      </v-card-title>
+    <v-card v-for="(category, index) in about" :key="index" class="my-4" flat>
+      <v-card-title primary-title>{{ category.category }}</v-card-title>
       <v-layout row wrap class="px-3">
-        <div
-          :class="getPadding()"
-          v-for="(item, ind) in category.items"
-          :key="ind"
-        >
+        <div :class="getPadding()" v-for="(item, ind) in category.items" :key="ind">
           <v-btn
             text
             rounded
@@ -26,9 +15,7 @@
             :color="item.color || null"
             class="text-capitalize"
           >
-            <v-icon :left="item.name != null" v-if="item.icon">
-              {{ item.icon }}
-            </v-icon>
+            <v-icon :left="item.name != null" v-if="item.icon">{{ item.icon }}</v-icon>
             {{ item.name }}
           </v-btn>
         </div>
@@ -36,36 +23,25 @@
     </v-card>
 
     <v-card class="my-4" flat>
-      <v-card-title primary-title>
-        {{ asyncAbout.category }}
-      </v-card-title>
+      <v-card-title primary-title>{{ asyncAbout.category }}</v-card-title>
       <v-layout row wrap class="px-3">
-        <div
-          :class="getPadding()"
-          v-for="(item, ind) in asyncAbout.items"
-          :key="ind"
-        >
+        <div :class="getPadding()" v-for="(item, ind) in asyncAbout.items" :key="ind">
           <v-btn
             text
             rounded
             :elevation="getElevation()"
-            :color="item.color || null"
+            :color="delAlpha(item.color) || null"
             class="text-capitalize"
           >
-            <v-icon :left="item.name != null" v-if="item.icon">
-              {{ item.icon }}
-            </v-icon>
+            <v-icon :left="item.name != null" v-if="item.icon">{{ item.icon }}</v-icon>
             {{ item.name }}
           </v-btn>
         </div>
         <div class="ma-1" :class="getPadding()">
-          <v-btn
-            text
-            rounded
-            :elevation="getElevation()"
-            class="font-weight-light"
-          >
-            L<sup>A</sup>T<sub>E</sub>X
+          <v-btn text rounded :elevation="getElevation()" class="font-weight-light">
+            L
+            <sup>A</sup>T
+            <sub>E</sub>X
           </v-btn>
         </div>
       </v-layout>
@@ -88,15 +64,16 @@
           {
             hid: "description",
             name: "description",
-            content: "展示了我的特长和爱好等的个人简介页面",
-          },
-        ],
+            content: "展示了我的特长和爱好等的个人简介页面"
+          }
+        ]
       };
     },
+
     components: {},
     data() {
       return {
-        about,
+        about
       };
     },
     computed: {},
@@ -112,13 +89,19 @@
         let b = 8 - t;
         return `pl-${l} pr-${r} pt-${t} pb-${b}`;
       },
+      delAlpha(value) {
+        if (value[0] == "#" && value.length > 7) {
+          return value.substring(0, value.length - 2);
+        }
+        return value;
+      }
     },
     created() {},
     mounted() {},
     async asyncData() {
       let { data } = await getCan();
       return { asyncAbout: { category: "I can", items: data } };
-    },
+    }
   };
 </script>
 <style scoped></style>
