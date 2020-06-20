@@ -41,6 +41,12 @@
       href: "http://baidi-coder.github.io/",
       icon: "mdi-space-invaders",
     },
+    {
+      name: "Xiong35 1.0",
+      discription: "这是我自己1.0版本的博客hhhh",
+      href: "http://www.xiong35.cn/blog1.0/",
+      icon: "mdi-alpha-x",
+    },
   ];
   export default {
     name: "Friends",

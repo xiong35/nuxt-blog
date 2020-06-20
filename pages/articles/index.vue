@@ -74,11 +74,17 @@
       },
     },
     created() {},
-    mounted() {},
+    mounted() {
+      this.tags.forEach((it, ind) => {
+        if (this.$store.state.activeTags.indexOf(it.tag_name) != -1) {
+          this.activeTags.push(ind);
+        }
+      });
+    },
     async asyncData() {
       let { data } = await getTags();
 
-      return { tags: data.reverse() };
+      return { tags: data };
     },
   };
 </script>
