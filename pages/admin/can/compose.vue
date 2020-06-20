@@ -47,15 +47,13 @@
             <v-col class="mt-7" cols="12">
               <span class="grey--text">preview:</span>
               <v-btn
+                elevation="2"
                 text
                 rounded
                 :color="color || null"
-                elevation="2"
-                class="text-capitalize ml-6 mr-12"
+                class="text-capitalize mx-4"
               >
-                <v-icon :left="name != ''" v-if="icon">
-                  {{ icon }}
-                </v-icon>
+                <v-icon :left="name != ''" v-if="icon">{{ icon }}</v-icon>
                 {{ name }}
               </v-btn>
               <v-btn color="info" outlined @click="submit">submit</v-btn>
