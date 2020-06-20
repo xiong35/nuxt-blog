@@ -33,6 +33,19 @@
       :boxShadow="false"
       :tabSize="4"
     ></mavon-editor>
+    <div class="px-5">
+      <v-chip
+        class="ma-1"
+        color="blue"
+        outlined
+        v-for="(item, index) in tags"
+        :key="index"
+        nuxt
+        :to="{ path: '/articles', query: { tags: [item] } }"
+      >
+        {{ item }}
+      </v-chip>
+    </div>
   </div>
 </template>
 
@@ -86,7 +99,10 @@
     },
     async asyncData({ params, error }) {
       var { data } = await getArticle(params.id, params.type);
-      return { content: data.Content };
+      return {
+        content: data.Content,
+        tags: data.Tags.map((it) => it.TagName),
+      };
     },
   };
 </script>

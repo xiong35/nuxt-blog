@@ -81,7 +81,14 @@
         }
       });
     },
-    async asyncData() {
+    async asyncData({ store, query }) {
+      if (query.tags != undefined) {
+        if (query.tags instanceof Array) {
+          store.commit("setActiveTags", query.tags);
+        } else if (typeof query.tags == "string") {
+          store.commit("setActiveTags", [query.tags]);
+        }
+      }
       let { data } = await getTags();
 
       return { tags: data };
