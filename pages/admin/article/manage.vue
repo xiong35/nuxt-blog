@@ -157,10 +157,8 @@
     },
     async asyncData({ query }) {
       let { data } = await getTags();
-      console.log(query);
 
       let res = await getArticle(query.id);
-      console.log(res);
 
       return { tags: data, content: res.data.Content };
     },

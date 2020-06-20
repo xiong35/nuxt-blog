@@ -54,7 +54,7 @@
         try {
           document.execCommand("copy");
         } catch (err) {
-          console.log("该浏览器不支持点击复制到剪贴板");
+          alert("该浏览器不支持点击复制到剪贴板");
         }
         document.body.removeChild(textArea);
       },
