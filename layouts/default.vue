@@ -8,10 +8,13 @@
             <nav-aside />
           </v-col>
           <v-col class="pa-4 col-12 col-md-9">
-            <nuxt />
+            <div style="max-width: 800px;" class="mx-auto"><nuxt />5</div>
           </v-col>
         </v-row>
         <TheBlogFooter />
+        <p class="text-center text--secondary">
+          <small>请使用谷歌浏览器以获得最佳体验</small>
+        </p>
       </v-main>
       <TheParticle ref="particle" />
       <TheDuck ref="duck" />
@@ -33,7 +36,7 @@
       NavAside,
       TheBlogFooter,
       TheDuck,
-      TheParticle
+      TheParticle,
     },
     data() {
       return {};
@@ -41,25 +44,22 @@
     methods: {
       callParticle(event) {
         this.$refs.particle.fatherClick(event);
-      }
-    }
+      },
+    },
   };
 </script>
 
 <style>
   ::selection {
-    color: #ffffff;
-    background-color: #41afee;
+    background-color: #41afee66;
     text-shadow: none;
   }
   ::-moz-selection {
-    color: #ffffff;
-    background-color: #41afee;
+    background-color: #41afee66;
     text-shadow: none;
   }
   ::-webkit-selection {
-    color: #ffffff;
-    background-color: #41afee;
+    background-color: #41afee66;
     text-shadow: none;
   }
 </style>
