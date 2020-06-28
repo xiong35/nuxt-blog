@@ -18,7 +18,7 @@
           <tbody>
             <tr v-for="(item, index) in meta" :key="index">
               <td>{{ item.key }}</td>
-              <td>{{ item.value||"233" + " " + item.addition }}</td>
+              <td>{{ (item.value||"233") + " " + item.addition }}</td>
             </tr>
           </tbody>
         </template>

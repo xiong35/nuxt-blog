@@ -8,7 +8,7 @@
             <nav-aside />
           </v-col>
           <v-col class="pa-4 col-12 col-md-9">
-            <div style="max-width: 800px;" class="mx-auto"><nuxt />5</div>
+            <div style="max-width: 880px;" class="mx-auto"><nuxt /></div>
           </v-col>
         </v-row>
         <TheBlogFooter />
