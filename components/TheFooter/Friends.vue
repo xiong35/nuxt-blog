@@ -38,7 +38,7 @@
     {
       name: "🦉Willog",
       discription: "朝气蓬勃小老弟的博客, 要去逛逛啊!",
-      href: "http://baidi-coder.github.io/",
+      href: "322mpz.coding-pages.com",
       icon: "mdi-space-invaders",
     },
     {
