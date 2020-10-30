@@ -30,15 +30,14 @@
   let links = [
     {
       name: "Jaya's Blog",
-      discription:
-        "主业研究Unity, 副业啥都学的漂亮姐姐的博客, 快去踩踩吧👆",
+      discription: "主业研究Unity, 副业啥都学的漂亮姐姐的博客, 快去踩踩吧👆",
       href: "http://39.102.64.20/",
       icon: "mdi-alpha-j",
     },
     {
       name: "🦉Willog",
       discription: "朝气蓬勃小老弟的博客, 要去逛逛啊!",
-      href: "322mpz.coding-pages.com",
+      href: "http://322mpz.coding-pages.com",
       icon: "mdi-space-invaders",
     },
     {
