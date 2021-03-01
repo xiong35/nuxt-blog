@@ -18,7 +18,7 @@
           <tbody>
             <tr v-for="(item, index) in meta" :key="index">
               <td>{{ item.key }}</td>
-              <td>{{ (item.value||"233") + " " + item.addition }}</td>
+              <td>{{ (item.value || "233") + " " + item.addition }}</td>
             </tr>
           </tbody>
         </template>
@@ -29,8 +29,8 @@
       <v-list-item
         v-for="(item, index) in links"
         :key="index"
-        nuxt
-        :to="item.href"
+        :to="!item.isHref ? item.href : undefined"
+        :href="item.isHref ? item.href : undefined"
         class="nav-item"
         active-class="cyan--text accent-3"
       >

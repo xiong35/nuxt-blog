@@ -1,12 +1,7 @@
 // dependency: //
 <template>
   <div class="index">
-    <v-tabs
-      centered
-      v-model="tab"
-      background-color="transparent"
-      color="blue"
-    >
+    <v-tabs centered v-model="tab" background-color="transparent" color="blue">
       <v-tab v-for="item in items" :key="item">
         {{ item }}
       </v-tab>
@@ -38,10 +33,7 @@
             </v-col>
           </v-row>
           <v-row cols="12">
-            <v-color-picker
-              class="mx-auto"
-              v-model="color"
-            ></v-color-picker>
+            <v-color-picker class="mx-auto" v-model="color"></v-color-picker>
           </v-row>
           <v-row>
             <v-col class="mt-7" cols="12">

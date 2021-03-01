@@ -7,18 +7,19 @@ var links = [
   {
     text: "文章",
     href: "/articles",
-    icon: "mdi-bookshelf"
+    icon: "mdi-bookshelf",
   },
   {
     text: "关于我",
     href: "/about",
-    icon: "mdi-face"
+    icon: "mdi-face",
   },
-  // {
-  //   text: "demo",
-  //   href: "/demo",
-  //   icon: "mdi-gamepad-variant-outline"
-  // },
-]
+  {
+    text: "简历",
+    href: "http://resume.xiong35.cn",
+    icon: "mdi-account-details",
+    isHref: true,
+  },
+];
 
-export default links
+export default links;
