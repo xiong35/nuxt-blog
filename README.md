@@ -1,22 +1,5 @@
 # nuxt-blog
 
-> redesign my blog with nuxt &amp; vuetify
+使用 nuxt 编写的个人博客前端部分, 有对文章的增删改查功能和罗列自己技能的功能
 
-## Build Setup
-
-```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+部署地址: [www.xiong35.cn](www.xiong35.cn)
