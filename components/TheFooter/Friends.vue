@@ -30,7 +30,7 @@
   let links = [
     {
       name: "Jaya's Blog",
-      discription: "主业研究Unity, 副业啥都学的漂亮姐姐的博客, 快去踩踩吧👆",
+      discription: "主业研究Unity, 副业啥都学的小姐姐的博客, 快去踩踩吧👆",
       href: "http://39.102.64.20/",
       icon: "mdi-alpha-j",
     },
@@ -41,10 +41,10 @@
       icon: "mdi-space-invaders",
     },
     {
-      name: "Xiong35 1.0",
-      discription: "这是我自己1.0版本的博客hhhh",
-      href: "http://www.xiong35.cn/blog1.0/",
-      icon: "mdi-alpha-x",
+      name: "BBHUST",
+      discription: "这是我做的华科校内论坛, 只有华科校友准入哦😏",
+      href: "https://bb.hust.online/",
+      icon: "mdi-alpha-b-circle",
     },
   ];
   export default {
